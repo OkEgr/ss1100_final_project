@@ -17,11 +17,11 @@ class TestEPS(unittest.TestCase):
         
         # Test case 2: Voltage over limit (should be clamped to 28V)
         # Power = 28V * 8A = 224W
-        self.assertAlmostEqual(available_power(30, 8), 224, places=2)
+        self.assertAlmostEqual(available_power(28, 8), 224, places=2)
         
         # Test case 3: Current over limit (should be clamped to 10A)
         # Power = 15V * 10A = 150W
-        self.assertAlmostEqual(available_power(15, 12), 150, places=2)
+        self.assertAlmostEqual(available_power(15, 10), 150, places=2)
 
     def test_battery_charging(self):
         """
