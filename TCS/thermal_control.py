@@ -11,7 +11,22 @@ def process_temperature(input_temp, target_temp):
     applies a function to move it towards equilibrium.
     It should return a single float as the output indicating 
     the new, altered temperature"""
-    return 0 # Delete this line and insert your code starting here!
+    
+    temp_difference = target_temp - input_temp
+
+    # Only correct 25% of the difference each time
+    adjustment = 0.25 * temp_difference
+
+    # Apply correction
+    new_temp = input_temp + adjustment
+
+    # Print active change in temperature
+    correction_applied = new_temp - input_temp
+    if abs(correction_applied) > 0.01:
+        action = "heating" if correction_applied > 0 else "cooling"
+        print(f"TCS is {action} by {abs(correction_applied):.2f}°C"
+              f"(moving from {input_temp:.2f}°C to {new_temp:.2f}°C)")
+    return new_temp
 
 
 ################### DO NOT EDIT BELOW THIS LINE ############################
