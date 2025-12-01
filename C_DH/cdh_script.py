@@ -1,4 +1,4 @@
-from command_dict import command_dict
+from C_DH import command_dict
 
 def parse_command(command_string):
     """
