@@ -14,15 +14,15 @@ def malfunction_detection(thrust_values):
         malfunction = False
 
         if thrust > MAX_THRUST:
-            print(f"[!] {thruster_name} THRUST TOO HIGH: {thrust} N (exceeds by {thrust - MAX_THRUST})")
+            print(f"[!] {thruster_name} THRUST TOO HIGH: {thrust} N (exceeds by {thrust - MAX_THRUST} N)")
             malfunction = True
 
         if flow_rate > MAX_FLOW:
-            print(f"[!] {thruster_name} FLOW RATE TOO HIGH: {flow_rate} kg/s (exceeds by {flow_rate - MAX_FLOW})")
+            print(f"[!] {thruster_name} FLOW RATE TOO HIGH: {flow_rate} kg/s (exceeds by {flow_rate - MAX_FLOW} kg/s)")
             malfunction = True
 
         if exhaust_velocity > MAX_VELOCITY:
-            print(f"[!] {thruster_name} EXHAUST VELOCITY TOO HIGH: {exhaust_velocity} m/s (exceeds by {exhaust_velocity - MAX_VELOCITY})")
+            print(f"[!] {thruster_name} EXHAUST VELOCITY TOO HIGH: {exhaust_velocity} m/s (exceeds by {exhaust_velocity - MAX_VELOCITY} m/s)")
             malfunction = True
 
         if not malfunction:
