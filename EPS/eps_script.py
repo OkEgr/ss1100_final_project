@@ -2,6 +2,7 @@ def available_power(voltage, current):
     """
     Calculates the instantaneous incoming power from the solar panels,
     checking for inputs that exceed the solar panels' maximum limits.
+    
     """
     if voltage > 28:
         voltage = 28
