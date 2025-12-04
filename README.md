@@ -44,7 +44,7 @@ Once you have completed the tasks for all the individual subsystems, you can tac
 *Answer the following questions here, replacing this text with your group's responses.*
 
 1.  **What was your experience in collaborating?** Talk about what steps you used to ensure the inputs from group members worked - code testing, GitHub branch management, etc. - and how you divided up the workload for the project.
-   
+   Overall, the collaboration effort went well between our group members. Once we got familiar with GitHub, things went pretty smoothly. The biggest sticking point was getting our preferred IDEs to link up with GitHub Desktop. After that was worked out, the confidence of having a commit history helped with rapid editing and committing to the online main. We had three group members, so we just divided up the subsystems with two per member.
 2.  **What was the most challenging section, and why?** Feel free to provide more than one response if there is a difference of opinion in the group.
    
 3.  **If you employed Generative AI tools, how did you do so?** Discuss which tools you used, the prompts you utilized, how you ensured the results were valid, and how you integrated the code into your tasks.
