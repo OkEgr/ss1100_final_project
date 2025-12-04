@@ -48,7 +48,10 @@ Once you have completed the tasks for all the individual subsystems, you can tac
 2.  **What was the most challenging section, and why?** Feel free to provide more than one response if there is a difference of opinion in the group.
    
 3.  **If you employed Generative AI tools, how did you do so?** Discuss which tools you used, the prompts you utilized, how you ensured the results were valid, and how you integrated the code into your tasks.
+  We used ChatGPT for both code generation and debugging. Prompts generally worked through each task step wise. The most interesting interaction occured when working on the C_DH subsystem. We simply added in the existing code and the LLM infered what we wanted. Results were confirmed by visual inspection and testing with the provided test scripts. The biggest integration challenge was ensuring that the LLM generated code variables matched the existing code structure.
+
+5.  **What other resources did you use to find solutions?** Online sites, books, references, etc.
+   Stack Exchange and Reddit did their usual wonders. Additionally, a regular Google search provided some AI interaction that helped a few times as well. 
   
-4.  **What other resources did you use to find solutions?** Online sites, books, references, etc.
-  
-5.  **In what way could this project be improved for future quarters?**
+6.  **In what way could this project be improved for future quarters?**
+   Maybe a simple visualization for subsytem effects would help with understanding (RCS, TCS, etc.)
