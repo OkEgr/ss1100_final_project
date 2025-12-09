@@ -15,7 +15,7 @@ def load_and_combine_bands(red_file, green_file, blue_file):
     """
     # YOUR CODE HERE
     try:
-        # skiprows=1: Skips the header row (0, 1, 2, 3...) which contains the empty string that caused the error.
+        # skiprows=1: Skips the header row (0, 1, 2, 3...)
         # delimiter=',': Specifies that the data is separated by commas.
         r_data = np.loadtxt(red_file, delimiter=',', skiprows=1)
         g_data = np.loadtxt(green_file, delimiter=',', skiprows=1)
@@ -81,32 +81,38 @@ def main():
     blue_file = 'blue.csv'
 
     # Task 1: Load and combine bands
-    radiance_image = load_and_combine_bands(red_file, green_file, blue_file)
-    if radiance_image is not None:
+    raw_image = load_and_combine_bands(red_file, green_file, blue_file)
+
+    if raw_image is not None:
         print("Successfully loaded and combined image bands.")
-        # Optional: visualize the raw radiance image
-        # plt.imshow(radiance_image)
-        # plt.title("Radiance Image")
-        # plt.show()
 
-    # "Check Plus" Tasks
-    # Task 2: Convert to reflectance
-    reflectance_image = convert_radiance_to_reflectance(radiance_image)
-    if reflectance_image is not None:
-        print("Successfully converted to reflectance.")
+        # FIX: Check if data needs conversion.
+        # If the maximum value is > 1, the data is likely already in 0-255 format.
+        # In this case, we skip the destructive radiance-to-reflectance conversion.
+        if np.max(raw_image) > 1.0:
+            print("Notice: Input data appears to be already scaled (0-255). Skipping radiance conversion.")
+            final_image = raw_image.astype(np.uint8)
+        else:
+            # "Check Plus" Tasks (Only run if data is raw radiance < 1.0)
+            # Task 2: Convert to reflectance
+            reflectance_image = convert_radiance_to_reflectance(raw_image)
+            if reflectance_image is not None:
+                print("Successfully converted to reflectance.")
 
-    # Task 3: Rescale to 8-bit
-    final_image = rescale_to_8bit(reflectance_image)
-    if final_image is not None:
-        print("Successfully rescaled to 8-bit.")
+            # Task 3: Rescale to 8-bit
+            final_image = rescale_to_8bit(reflectance_image)
+            if final_image is not None:
+                print("Successfully rescaled to 8-bit.")
 
-    # Task 4: Visualize and save the final image
-    if final_image is not None:
-        plt.imshow(final_image)
-        plt.title("Final Processed Image")
-        plt.show()
-        save_image(final_image, 'final_image.png')
-        print("Saved final image to final_image.png")
+        # Task 4: Visualize and save the final image
+        if final_image is not None:
+            plt.figure(figsize=(10, 6))
+            plt.imshow(final_image)
+            plt.title("Final Processed Image")
+            plt.axis('off')
+            plt.show()
+            save_image(final_image, 'final_image.png')
+            print("Saved final image to final_image.png")
 
 
 if __name__ == "__main__":
