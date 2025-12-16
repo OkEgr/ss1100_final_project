@@ -5,6 +5,9 @@ import numpy as np
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+# Moved the following from main() due to TestCase altering name and code note running
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 from payload_script import (load_and_combine_bands,
                               convert_radiance_to_reflectance,
                               rescale_to_8bit)
@@ -46,5 +49,4 @@ class TestPayload(unittest.TestCase):
 
 if __name__ == '__main__':
     # Change directory to the test file's location to find the dummy CSVs
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
     unittest.main()
