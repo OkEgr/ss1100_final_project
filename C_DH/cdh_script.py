@@ -54,7 +54,7 @@ def parse_command(command_string):
         subsystem_name,
         command_name,
         value
-    )
+    ) # this is a single tuple as the return, rather than three individual objects being returned
 
 
 def main():
